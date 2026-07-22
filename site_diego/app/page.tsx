@@ -5,7 +5,8 @@ import { Proposito } from '@/components/Proposito';
 import { SobreMim } from '@/components/Sobre';
 import { Familia } from '@/components/Familia';
 import { Trabalho } from '@/components/Trabalho';
-
+import { Conteudos } from '@/components/Conteudos';
+import { Footer } from '@/components/Footer';
 
 
 export default function Home() {
@@ -22,6 +23,9 @@ export default function Home() {
         <SobreMim/>
         <Familia/>
         <Trabalho/>
+        <Conteudos/>
+        <Footer/>
+        
         
       
 
