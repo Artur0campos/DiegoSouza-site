@@ -17,19 +17,19 @@ export function Hero() {
 
       {/* 2. Cabeçalho / Navbar superior */}
       <header className="w-full max-w-7xl mx-auto px-2 py-5 flex items-center justify-between">
-        <span className="text-3xl tracking-tight font-light">home</span>
+        <span className="text-3xl tracking-tight font-light hover:text-[#26BDB0]">home</span>
         
         <nav className="hidden md:flex items-center space-x-10 text-xl font-light">
-          <Link href="#livros" className="hover:opacity-75 transition-opacity">
+          <Link href="/livros" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]" >
             Livros
           </Link>
-          <Link href="#louvores" className="hover:opacity-75 transition-opacity">
+          <Link href="#louvores" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Louvores
           </Link>
-          <Link href="#discipulado" className="hover:opacity-75 transition-opacity">
+          <Link href="#discipulado" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Discipulado
           </Link>
-          <Link href="#materiais" className="hover:opacity-75 transition-opacity">
+          <Link href="#materiais" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Materiais
           </Link>
         </nav>
