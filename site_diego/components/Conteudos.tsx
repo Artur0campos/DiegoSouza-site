@@ -7,7 +7,7 @@ export function Conteudos() {
       title: 'Devocionais',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       icon: BookOpen,
-      href: '#devocionais', // Mude para a rota futura quando existir
+      href: '/devocionais',
     },
     {
       title: 'Livros',
