@@ -26,7 +26,7 @@ export function Hero() {
           <Link href="#louvores" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Louvores
           </Link>
-          <Link href="#discipulado" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
+          <Link href="/devocionais" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Discipulado
           </Link>
           <Link href="#materiais" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">

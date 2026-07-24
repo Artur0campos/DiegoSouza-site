@@ -28,16 +28,20 @@ export function DevocionalCard({ devocional, index }: DevocionalCardProps) {
       {/* 1. Área de Imagem ou Placeholder */}
       <div className="relative w-full h-52 sm:h-56 bg-[#093733] overflow-hidden">
         {devocional.coverUrl ? (
-          <Image
-            src={devocional.coverUrl}
-            alt={devocional.coverAlt || devocional.titulo}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-          />
+          <>
+            <Image
+              src={devocional.coverUrl}
+              alt={devocional.coverAlt || devocional.titulo}
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out z-0"
+            />
+            {/* Overlay suave por cima da imagem para dar contraste no texto/badge */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#093733]/60 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity duration-300 z-1" />
+          </>
         ) : (
           /* Placeholder estilizado quando não há imagem */
           <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-[#093733] via-[#0b4742] to-[#093733] relative">
-            {/* Padrão decorativo de fundo */}
             <div className="absolute inset-0 bg-[radial-gradient(#26BDB0_1px,transparent_1px)] [background-size:16px_16px] opacity-15" />
             
             <div className="w-12 h-12 rounded-full bg-[#26BDB0]/20 flex items-center justify-center mb-3 text-[#26BDB0] group-hover:scale-110 transition-transform duration-300">
@@ -49,9 +53,6 @@ export function DevocionalCard({ devocional, index }: DevocionalCardProps) {
             </span>
           </div>
         )}
-
-        {/* Overlay escuro em hover da imagem */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#093733]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
 
         {/* Badge de Data no topo */}
         <div className="absolute top-4 left-4 z-10 flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md text-[#093733] font-montserrat text-xs font-medium shadow-sm">
