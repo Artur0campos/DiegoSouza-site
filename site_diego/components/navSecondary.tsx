@@ -15,7 +15,7 @@ export function NavSecondary() {
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         <ul className="flex items-center justify-center md:justify-around space-x-6 sm:space-x-12 py-5 overflow-x-auto no-scrollbar text-lg sm:text-xl font-light">
           {navItems.map((item, index) => (
-            <li key={index} className="whitespace-nowrap">
+            <li key={index} className="whitespace-nowrap hover:text-[#26BDB0]">
               <Link
                 href={item.href}
                 className="hover:opacity-80 transition-opacity duration-200 tracking-wide block px-2 py-1"
