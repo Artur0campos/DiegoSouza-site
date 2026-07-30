@@ -19,7 +19,7 @@ export function Conteudos() {
       title: 'Materiais para célula',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       icon: Users,
-      href: '#materiais',
+      href: '/materias-celula',
     },
     {
       title: 'Louvores',
