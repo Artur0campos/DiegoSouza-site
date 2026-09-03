@@ -25,7 +25,7 @@ export function Conteudos() {
       title: 'Louvores',
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       icon: Music,
-      href: '#louvores',
+      href: '/musicas',
     },
   ];
 
