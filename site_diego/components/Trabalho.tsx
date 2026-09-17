@@ -30,11 +30,11 @@ export function Trabalho() {
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
           <div className="relative w-full max-w-[500px] h-[450px] sm:h-[550px] md:h-[620px]">
             <Image
-              src="/assets/diegoTrabalho.jpg"
+              src="/assets/DiegoPalestra.png"
               alt="Dr. Diego Bruno em seu ambiente de trabalho"
               fill
               priority
-              className="object-cover object-center shadow-sm rounded-sm"
+              className="object-cover object-top shadow-sm rounded-sm"
             />
           </div>
         </div>

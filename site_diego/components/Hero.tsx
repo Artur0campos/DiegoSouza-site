@@ -23,13 +23,13 @@ export function Hero() {
           <Link href="/livros" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]" >
             Livros
           </Link>
-          <Link href="#louvores" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
+          <Link href="/musicas" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Louvores
           </Link>
           <Link href="/devocionais" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Discipulado
           </Link>
-          <Link href="#materiais" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
+          <Link href="/materias-celula" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Materiais
           </Link>
         </nav>
@@ -41,7 +41,7 @@ export function Hero() {
         {/* Lado Esquerdo: Foto do Diego */}
         <div className="relative w-full md:w-1/2 h-[450px] sm:h-[550px] md:h-[780px] flex items-end">
           <Image
-            src="/assets/diegoHero.png"
+            src="/assets/diegoHero2.png"
             alt="Dr. Diego Bruno de Souza"
             fill
             priority
@@ -50,19 +50,19 @@ export function Hero() {
         </div>
 
         {/* Lado Direito: Nome, Subtítulo e Botão com Animação */}
-        <div className="w-full md:w-auto flex flex-col items-start md:items-end text-left md:text-right pb-20 md:pb-40 md:-mt-20">
+        <div className="w-full md:w-auto flex flex-col items-start md:items-end text-left md:text-right pb-20 md:pb-40 relative -top-10 md:-top-20">
         
         <h1 className="font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight mb-2 ">
-            Dr Diego Bruno de Souza pires.        
+            Vivendo o Propósito        
         </h1>
 
         <p className="text-xl sm:text-2xl font-light tracking-wide mb-10 text-[#093733]/90">
-            trabalho que segue um propósito
+            Dr Diego Bruno de Souza Pires
         </p>
 
         {/* Botão */}
         <Link
-            href="#conheca-mais"
+            href="#sobre-mim"
             className="relative inline-flex items-center justify-center px-8 py-3 text-xl font-light border-[3px] border-[#093733] text-[#093733] overflow-hidden group transition-colors duration-300"
         >
             <span className="absolute inset-0 w-full h-full bg-[#093733] transition-all duration-300 ease-out transform -translate-x-full group-hover:translate-x-0"></span>

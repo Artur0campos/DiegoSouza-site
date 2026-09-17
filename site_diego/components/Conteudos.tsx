@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BookOpen, Bookmark, Users, Music } from 'lucide-react';
+import { BookOpen, Bookmark, Users, Music, Mic } from 'lucide-react';
 
 export function Conteudos() {
   const cards = [
@@ -26,6 +26,12 @@ export function Conteudos() {
       description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
       icon: Music,
       href: '/musicas',
+    },
+    {
+      title: 'Palestras & Pregações',
+      description: 'Assista às palestras e pregações do Dr. Diego Bruno diretamente aqui, sem sair da página.',
+      icon: Mic,
+      href: '/palestras',
     },
   ];
 

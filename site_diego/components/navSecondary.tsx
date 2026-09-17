@@ -7,6 +7,7 @@ export function NavSecondary() {
     { label: 'Família', href: '#familia' },
     { label: 'Trabalho', href: '#trabalho' },
     { label: 'Conteúdos', href: '#conteudos' },
+    { label: 'Palestras', href: '/palestras' },
   ];
 
   return (
