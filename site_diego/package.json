@@ -4,9 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "sync:links": "node scripts/sync-links.mjs",
+    "prebuild": "node scripts/sync-links.mjs",
     "build": "next build",
     "lint": "eslint",
+    "prepreview": "node scripts/sync-links.mjs",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "predeploy": "node scripts/sync-links.mjs",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy"
   },
   "dependencies": {

@@ -1,7 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-import { Play, X } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import type { Palestra } from '@/data/palestras';
 
 interface VideoCardProps {
@@ -11,121 +10,81 @@ interface VideoCardProps {
 }
 
 function VideoCard({ palestra, title, index }: VideoCardProps) {
-  const [isOpen, setIsOpen] = useState(false);
   const thumbnail = `https://i.ytimg.com/vi/${palestra.youtubeId}/hqdefault.jpg`;
 
   return (
-    <>
-      {/* Card */}
-      <article
-        className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col"
-        style={{ animationDelay: `${index * 80}ms` }}
+    <article
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 flex flex-col border border-[#093733]/10"
+      style={{ animationDelay: `${index * 80}ms` }}
+    >
+      {/* Thumbnail com link direto para o YouTube */}
+      <a
+        href={palestra.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Assistir no YouTube: ${title}`}
+        className="relative w-full aspect-video overflow-hidden cursor-pointer block group/thumb"
+        title="Assistir no YouTube"
       >
-        {/* Thumbnail com overlay de play */}
-        <button
-          id={`palestra-play-${palestra.youtubeId}`}
-          aria-label={`Assistir: ${title}`}
-          onClick={() => setIsOpen(true)}
-          className="relative w-full aspect-video overflow-hidden cursor-pointer focus:outline-none"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={thumbnail}
-            alt={title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          {/* Overlay escuro ao hover */}
-          <div className="absolute inset-0 bg-[#093733]/40 group-hover:bg-[#093733]/20 transition-colors duration-300" />
-          {/* Botão play central */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-14 h-14 rounded-full bg-white/90 group-hover:bg-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-all duration-300">
-              <Play className="w-6 h-6 text-[#093733] fill-[#093733] ml-0.5" />
-            </div>
-          </div>
-          {/* Badge YouTube */}
-          <div className="absolute bottom-3 right-3 bg-[#093733]/80 text-white text-[10px] font-montserrat tracking-widest uppercase px-2 py-1 rounded">
-            YouTube
-          </div>
-        </button>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={thumbnail}
+          alt={title}
+          className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500"
+        />
+        {/* Overlay com indicação visual de redirecionamento para o YouTube no hover */}
+        <div className="absolute inset-0 bg-[#093733]/30 group-hover/thumb:bg-[#093733]/50 transition-colors duration-300 flex items-center justify-center">
+          <span className="opacity-0 group-hover/thumb:opacity-100 transition-all duration-300 transform translate-y-2 group-hover/thumb:translate-y-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 text-[#093733] font-montserrat text-xs font-semibold shadow-lg">
+            <svg className="w-4 h-4 text-red-600 fill-current" viewBox="0 0 24 24">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+            <span>Assistir no YouTube</span>
+            <ExternalLink className="w-3.5 h-3.5 text-[#26BDB0]" />
+          </span>
+        </div>
 
-        {/* Corpo do card */}
-        <div className="p-5 flex flex-col flex-1">
-          <h3 className="font-alan font-light text-lg text-[#093733] leading-snug mb-3 line-clamp-2">
-            {title}
-          </h3>
+        {/* Badge YouTube */}
+        <div className="absolute bottom-3 right-3 bg-[#093733]/85 text-white text-[10px] font-montserrat tracking-widest uppercase px-2.5 py-1 rounded-md shadow-sm flex items-center gap-1.5">
+          <svg className="w-3 h-3 text-red-500 fill-current" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          <span>YouTube</span>
+        </div>
+      </a>
 
-          {/* Link direto para o YouTube */}
+      {/* Corpo do card */}
+      <div className="p-5 flex flex-col flex-1 justify-between">
+        <div>
           <a
             href={palestra.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 font-montserrat text-xs text-[#093733]/60 hover:text-[#26BDB0] transition-colors duration-300 mb-4 break-all"
+            className="group/title block"
+            title={title}
           >
-            <svg className="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-            </svg>
-            <span className="truncate">Assistir no YouTube</span>
-          </a>
-
-          <div className="mt-auto flex items-center justify-between">
-            <span className="font-montserrat text-xs text-[#093733]/50 tracking-wide uppercase">
-              Dr. Diego Bruno
-            </span>
-            <button
-              onClick={() => setIsOpen(true)}
-              className="font-montserrat text-xs text-[#26BDB0] hover:text-[#093733] transition-colors font-medium tracking-wide"
-            >
-              Assistir →
-            </button>
-          </div>
-        </div>
-      </article>
-
-      {/* Modal de player inline */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Reproduzindo: ${title}`}
-        >
-          {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            onClick={() => setIsOpen(false)}
-          />
-
-          {/* Player container */}
-          <div className="relative w-full max-w-4xl z-10">
-            {/* Botão fechar */}
-            <button
-              onClick={() => setIsOpen(false)}
-              aria-label="Fechar vídeo"
-              className="absolute -top-10 right-0 text-white/70 hover:text-white transition-colors flex items-center gap-2 font-montserrat text-sm"
-            >
-              <X className="w-5 h-5" />
-              Fechar
-            </button>
-
-            {/* iframe YouTube */}
-            <div className="w-full aspect-video rounded-xl overflow-hidden shadow-2xl">
-              <iframe
-                src={`https://www.youtube.com/embed/${palestra.youtubeId}?autoplay=1&rel=0`}
-                title={title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-                className="w-full h-full border-0"
-              />
-            </div>
-
-            {/* Título abaixo do player */}
-            <p className="mt-4 text-white/90 font-alan font-light text-lg text-center">
+            <h3 className="font-alan font-light text-lg text-[#093733] leading-snug mb-3 line-clamp-2 group-hover/title:text-[#26BDB0] transition-colors">
               {title}
-            </p>
-          </div>
+            </h3>
+          </a>
         </div>
-      )}
-    </>
+
+        <div className="pt-3 border-t border-[#093733]/10 flex items-center justify-between mt-auto">
+          <span className="font-montserrat text-xs text-[#093733]/60 tracking-wide uppercase">
+            Dr. Diego Bruno
+          </span>
+
+          <a
+            href={palestra.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 font-montserrat text-xs text-[#26BDB0] hover:text-[#093733] font-medium tracking-wide transition-colors group/link"
+          >
+            <span>Assistir no YouTube</span>
+            <ExternalLink className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 transition-transform" />
+          </a>
+        </div>
+      </div>
+    </article>
   );
 }
 

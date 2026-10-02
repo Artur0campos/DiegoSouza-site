@@ -32,6 +32,9 @@ export function Hero() {
           <Link href="/materias-celula" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
             Materiais
           </Link>
+          <Link href="/palestras" className="hover:opacity-75 transition-opacity hover:text-[#26BDB0]">
+            Palestras & Pregações
+          </Link>
         </nav>
       </header>
 

@@ -8,7 +8,13 @@ import { getPalestras } from '@/data/palestras';
 async function fetchTitle(youtubeId: string): Promise<string> {
   try {
     const url = `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${youtubeId}&format=json`;
-    const res = await fetch(url, { next: { revalidate: 86400 } }); // cache de 24h
+    const res = await fetch(url, {
+      next: { revalidate: 86400 }, // cache de 24h
+      signal: AbortSignal.timeout(4000),
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (compatible; SiteDiego/1.0)',
+      },
+    });
     if (!res.ok) return 'Palestra';
     const data = await res.json();
     return data.title ?? 'Palestra';
